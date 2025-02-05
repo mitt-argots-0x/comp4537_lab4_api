@@ -60,7 +60,9 @@ const server = http.createServer((req, res) => {
                 }
 
                 dictionary.set(word, definition);
-                res.end(JSON.stringify({message: "word successfully stored in the dictionary"}));
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.end(JSON.stringify({success: true, message: "word successfully stored in the dictionary"}));
+
                 console.log(`${word}: ${definition}`); ///////////////////// DEbuGGING
             });
 
@@ -86,3 +88,12 @@ const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+// //num_request
+
+// {
+//     error: asdfasdf,
+//     message: lakdjslkfajsdljf
+// }
