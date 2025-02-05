@@ -16,6 +16,13 @@ const server = http.createServer((req, res) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Allow specific methods
     res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allow headers like JSON
 
+    // ✅ Handle Preflight Requests (OPTIONS method)
+    if (req.method === "OPTIONS") {
+        res.writeHead(204); // No Content response for preflight
+        res.end();
+        return;
+    }
+
     if (pathname === "/api/definitions" && req.method === "POST") {
         console.log(`Inside ${req.url} ${req.method}`); ///////////// DEBUGGING
         let body = [];
