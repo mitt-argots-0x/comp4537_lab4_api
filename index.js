@@ -12,6 +12,10 @@ const server = http.createServer((req, res) => {
     const params = url.searchParams;
     const pathname = removeTrailingSlash(url.pathname);
 
+    res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS"); // Allow specific methods
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Allow headers like JSON
+
     if (pathname === "/api/definitions" && req.method === "POST") {
         console.log(`Inside ${req.url} ${req.method}`); ///////////// DEBUGGING
         let body = [];
