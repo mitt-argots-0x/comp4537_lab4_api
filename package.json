@@ -1,0 +1,11 @@
+{
+  "name": "comp4537_lab4_api",
+  "version": "1.0.0",
+  "description": "api server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
